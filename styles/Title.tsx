@@ -1,4 +1,4 @@
-// je n'ai pas terminez ici on vas completez au fur et a mesure
+// je n'ai pas terminez ici on vas completez au fur et a mesure 
 import { StyleSheet } from "react-native"
 export const styles = StyleSheet.create ({
 // src/styles/styles.ts
