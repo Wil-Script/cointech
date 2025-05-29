@@ -1,7 +1,6 @@
 // je n'ai pas terminez ici on vas completez au fur et a mesure 
 import { StyleSheet } from "react-native"
-export const styles = StyleSheet.create ({
-// src/styles/styles.ts
+export const TitleStyles = StyleSheet.create ({
   TitlexlRegular: {
     fontSize: 34,
     lineHeight: 41,
@@ -174,6 +173,56 @@ export const styles = StyleSheet.create ({
   },
   BodymdXBold: {
     fontSize: 14,
+    lineHeight: 22,
+    fontWeight: '800',
+  },
+  labelLgRegular: {
+    fontSize: 16,
+    lineHeight: 24,
+    fontWeight: '400',
+  },
+  labelLgMedium: {
+    fontSize: 16,
+    lineHeight: 24,
+    fontWeight: '500',
+  },
+  labelLgSemiBold: {
+    fontSize: 16,
+    lineHeight: 24,
+    fontWeight: '600',
+  },
+  labelLgBold: {
+    fontSize: 16,
+    lineHeight: 24,
+    fontWeight: '700',
+  },
+  labelLgXBold: {
+    fontSize: 16,
+    lineHeight: 24,
+    fontWeight: '800',
+  },
+  labelmdRegular: {
+    fontSize: 14,
+    lineHeight: 22,
+    fontWeight: '400',
+  },
+  labelmdMedium: {
+    fontSize: 16,
+    lineHeight: 22,
+    fontWeight: '500',
+  },
+  labelmdSemiBold: {
+    fontSize: 16,
+    lineHeight: 22,
+    fontWeight: '600',
+  },
+  labelmdBold: {
+    fontSize: 16,
+    lineHeight: 22,
+    fontWeight: '700',
+  },
+  labelmdXBold: {
+    fontSize: 16,
     lineHeight: 22,
     fontWeight: '800',
   },
