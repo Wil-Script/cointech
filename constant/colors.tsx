@@ -1,7 +1,7 @@
 export default {
     blueColor:'#304FFE',
     white:'#ffffff',
-    griseButton:'#d3d3d3',
+    griseButton:'#b8b8b8',
     black:'#000000',
     gris:'#cccccc',
     griseStatutBar:'#f7f7f7',

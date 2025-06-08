@@ -9,6 +9,7 @@ import { TitleStyles } from '../../styles/Title'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { RootStackPAramList } from '../../constant/Type'
 import { useNavigation } from '@react-navigation/native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 type VerrificationNaviguationProp = NativeStackNavigationProp<RootStackPAramList,'Verrification'>
 const Verrification = () => {
@@ -28,8 +29,15 @@ const Verrification = () => {
     }
   },
 [activity])
-          
-     
+     const photo = async()=>{
+      try{
+       const data =  await AsyncStorage.getItem('photo') ;
+       return true
+      }catch(e){
+        console.log('erreur lors de la recuperration des donnees dans le async storage')
+      }
+      return false
+     }     
   const [information, useInformation] = useState([
     {
       id: 1,
