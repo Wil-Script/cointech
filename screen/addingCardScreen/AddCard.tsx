@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { RootStackPAramList } from '../../constant/Type'
 import { useNavigation } from '@react-navigation/native'
+import { TouchableOpacity } from 'react-native'
 
 type AddCardNaviguation = NativeStackNavigationProp<RootStackPAramList, 'AddCard'>
 
@@ -29,19 +30,21 @@ const AddCard = () => {
             const email = await AsyncStorage.getItem('email')
             // verification si tous les chants sont remplis
             // formaData?.valid
-            // if (name !== '' && email !== ''&&formaData?.values.expiry!=''&&formaData?.values.number!=''&& formaData?.values.cvc!='' && formaData?.values.type != undefined) {
+            if (name !== '' && email !== ''&&formaData?.values.expiry!=''&&formaData?.values.number!=''&& formaData?.values.cvc!='' && formaData?.values.type != undefined) {
                 setVerified(false)
-                const sauvegarde = await AsyncStorage.setItem('Credit card',JSON.stringify(formaData?.values.numbergi)); 
-            // } else {
-                // console.log('sa ne marche pas malheureseuments')
-            // }
+                const sauvegarde = await AsyncStorage.setItem('Credit card',JSON.stringify(formaData?.values.number)); 
+            } else {
+                console.log('sa ne marche pas malheureseuments')
+            }
         } catch (e) {
             console.log('error lors du control des donnee')
         }
     }
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: colors.griseStatutBar, opacity: 1 }}>
+            <TouchableOpacity onPress={()=>navigation.navigate('CardList')}>
             <Back />
+            </TouchableOpacity>
             <View style={{ marginHorizontal: 20 }}>
                 <Text style={{ ...TitleStyles.TitlelgRegular, marginTop: 10 }}>Add card</Text>
                 <Text style={{ ...TitleStyles.labelmdRegular }} >enter you credit card info into the box below</Text>

@@ -24,7 +24,7 @@ const Verrification = () => {
   useEffect(()=>{
     if(activity){
     const navigationTimer =setTimeout(()=>
-      {navigation.navigate('Welcome')},3000)
+      {navigation.navigate('Pin')},3000)
    return ()=> clearTimeout(navigationTimer);
     }
   },
@@ -82,8 +82,6 @@ const Verrification = () => {
                 />:<ActivityIndicator/> 
               }
                 
-              
-
             </View>
           )}
         />

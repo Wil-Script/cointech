@@ -23,7 +23,7 @@ const TakePhoto = () => {
         <Text style={{ ...TitleStyles.BodymdMedium, color: colors.SousTitle, textAlign: 'center', marginTop: 10 }}>quick and esay identification using your phone's camera. Confirm you identity with self-captured photo</Text>
 
       </View>
-      <View style={{position:'absolute',bottom:10,left:'40%'}}>
+      <View style={{position:'absolute',bottom:80,left:'40%'}}>
           <TouchableOpacity style={{ borderRadius: 40, backgroundColor: colors.blueColor, padding: 5 }} 
            onPress={()=>{
             Navigation.navigate('OpenCamera')

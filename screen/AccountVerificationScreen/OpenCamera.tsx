@@ -43,7 +43,7 @@ const OpenCamera = () => {
             const photo = await cameraRef.current.takePhoto();
             setImageData(photo.path)
             try {
-                await AsyncStorage.setItem('photo', JSON.stringify(photo.path));
+                await AsyncStorage.setItem('photo',photo.path);
             } catch (e) { console.log(e) }
             setTakePhoto(true)
             await CameraRoll.save(`file://${photo.path}`, {
@@ -65,12 +65,12 @@ const OpenCamera = () => {
                     />
                     <View style={{ backgroundColor: 'rgba(0,0,0,0.7)', width: '100%', height: 120, position: 'absolute', bottom: 0 }}>
                     </View>
-                    <View style={{ position: 'absolute', bottom: 20, alignSelf: 'center' }}>
+                    <View style={{ position: 'absolute', bottom: 55, alignSelf: 'center' }}>
                         <TouchableOpacity onPress={() => { TakePictures() }
                             // naviguation.navigate('Verrification')
                         } style={{
-                            height: 80,
-                            width: 80,
+                            height: 60,
+                            width: 60,
                             backgroundColor: colors.white,
                             borderRadius: 40
 

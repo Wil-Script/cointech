@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View,TextInput } from 'react-native'
-import React, { useState } from 'react'
+import { StyleSheet, Text, View, TextInput } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import colors from '../../constant/colors'
 import Back from '../../components/Back'
@@ -11,6 +11,12 @@ import {
     useBlurOnFulfill,
     useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { RootStackPAramList } from '../../constant/Type'
+import { useNavigation } from '@react-navigation/native'
+import { TouchableOpacity } from 'react-native'
+
+type VerrificationNaviguationProp = NativeStackNavigationProp<RootStackPAramList, 'Pin'>
 
 const CELL_COUNT = 4;
 const PinSetup = () => {
@@ -20,9 +26,18 @@ const PinSetup = () => {
         value,
         setValue,
     });
+    useEffect(() => {
+        if(Number(value)>999){
+            navigation.navigate('Welcome')
+        }
+    }, [value])
+    const navigation = useNavigation<VerrificationNaviguationProp>()
+
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: colors.white }}>
+            <TouchableOpacity onPress={()=>{navigation.goBack()}}>
             <Back />
+            </TouchableOpacity>
             <View style={{ marginTop: 10 }}></View>
             <Progress.Bar progress={0.8} width={370} unfilledColor={colors.griseStatutBar} height={6} borderWidth={0} borderRadius={20} />
             <View style={{ marginTop: 20, marginHorizontal: 20 }}>
@@ -46,10 +61,12 @@ const PinSetup = () => {
                             style={[styles.cell, isFocused && styles.focusCell]}
                             onLayout={getCellOnLayoutHandler(index)}>
                             <Text style={styles.cellText}>
-                                {symbol ?'●':(isFocused ? <Cursor /> : null)}
+                                {symbol ? '●' : (isFocused ? <Cursor /> : null)}
                             </Text>
-                        </View>)}/>
+                        </View>)} />
             </View>
+
+
 
             <View>
             </View>
@@ -61,26 +78,26 @@ export default PinSetup
 
 const styles = StyleSheet.create({
     root: { padding: 20 },
-  title: { textAlign: 'center', fontSize: 24 },
-  codeFieldRoot: { marginTop: 20, flexDirection: 'row', justifyContent: 'center' },
-  cell: {
-    width: 30,
-    height: 30,
-    lineHeight: 38,
-    fontSize: 24,
-    borderWidth: 2,
-    borderColor: '#00000030',
-    textAlign: 'center',
-    marginHorizontal: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius:15
-  },
-  cellText: {
-    fontSize: 20,
-    
-  },
-  focusCell: {
-    borderColor: '#007AFF',
-  },
+    title: { textAlign: 'center', fontSize: 24 },
+    codeFieldRoot: { marginTop: 20, flexDirection: 'row', justifyContent: 'center' },
+    cell: {
+        width: 30,
+        height: 30,
+        lineHeight: 38,
+        fontSize: 24,
+        borderWidth: 2,
+        borderColor: '#00000030',
+        textAlign: 'center',
+        marginHorizontal: 8,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 15
+    },
+    cellText: {
+        fontSize: 20,
+
+    },
+    focusCell: {
+        borderColor: '#007AFF',
+    },
 })

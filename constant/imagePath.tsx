@@ -1,4 +1,4 @@
-export default {
+export default  {
     ReceiveMoney:require('./../assets/images/ReceiveMoney.png'),
     ClipPathGroup:require('./../assets/images/Clippathgroup.png'),
     SendMoneyAbroad:require('./../assets/images/Sendmoneyabrod.png'),
@@ -20,4 +20,12 @@ export default {
     income:require('./../assets/images/income.png'),
     addingCard:require('./../assets/images/addingCard.jpg'),
     HomeBackground:require('./../assets/images/plan.jpg'),
+    Netflix:require('./../assets/images/netflix.png'),
+    Google:require('./../assets/images/google.png'),
+    Telegram:require('./../assets/images/telegram.jpg'),
+    Splash:require('./../assets/images/Splash.png'),
+    signup:require('./../assets/images/signup.png'),
+    receive: require("../assets/images/receive.png"),
+    briefcase: require('../assets/images/briefcase.png'),
+    person: require("../assets/images/person.png"),
 }

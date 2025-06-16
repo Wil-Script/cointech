@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import *  as  Progress from 'react-native-progress'
@@ -8,11 +8,24 @@ import Buttons from '../../components/Buttons'
 import imagePath from '../../constant/imagePath'
 import colors from '../../constant/colors';
 import { TitleStyles } from '../../styles/Title'
+import { RootStackPAramList } from '../../constant/Type'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { useNavigation } from '@react-navigation/native'
+import ButtonsWithIcon from '../../components/ButtonsWithIcon'
 
+
+type naviguationOnboardingScreen = NativeStackNavigationProp<RootStackPAramList,'Welcome'>
 const Welcome = () => {
+    const navigation = useNavigation<naviguationOnboardingScreen>()
+    // navigation.reset({
+    //     routes:[{name:'Welcome'}]
+    // })
     return (
         <SafeAreaView style={{flex:1,backgroundColor:colors.white}}>
-            <Back/>
+            <TouchableOpacity onPress={()=>navigation.goBack()}>
+                <Back/>
+            </TouchableOpacity>
+            
             <View style={{justifyContent:'space-between',flex:1}}>
                 <View style={styles.container}> 
                     <Progress.Bar progress={1} width={370} unfilledColor={colors.griseStatutBar} height={6} borderWidth={0} borderRadius={20} />
@@ -22,7 +35,10 @@ const Welcome = () => {
                     <Text style={{ ...TitleStyles.BodymdMedium, color: colors.SousTitle, textAlign: 'center', margin: 10 }}>we are happy to have you .it's time to send receive and track your expense</Text>
                 </View>
                 <View style={{marginBottom:20}}>
-                <Buttons name='Continue' fill={false} verify={false} />
+                    
+                    <ButtonsWithIcon  navigation={navigation} nameIcon='' name=' Continue' fill={false} verify={false} route='HomePage' />
+                    
+                {/* <Buttons name='Continue' fill={false} verify={false} /> */}
                 </View>
             </View>
         </SafeAreaView>

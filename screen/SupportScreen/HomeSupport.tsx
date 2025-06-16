@@ -6,8 +6,14 @@ import colors from '../../constant/colors'
 import ButtonsIcon from '../../components/ButtonsWithIcon'
 import { TitleStyles } from '../../styles/Title'
 import imagePath from '../../constant/imagePath'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { RootStackPAramList } from '../../constant/Type'
+import { useNavigation } from '@react-navigation/native'
 
+type SupportNaviguation = NativeStackNavigationProp<RootStackPAramList,'HomeSupport'>
 const HomeSupport = () => {
+      const navigation = useNavigation<SupportNaviguation>()
+  
   return (
     <SafeAreaView style={{flex:1,backgroundColor:colors.white}}>
         <View style={{flexDirection:'row',alignItems:'center',}}>
@@ -21,9 +27,9 @@ const HomeSupport = () => {
             <Text style={{...TitleStyles.TitlemdXBold,textAlign:'center'}}>CoinPay  Support </Text>
             <Text style={{ ...TitleStyles.BodymdMedium, color: colors.SousTitle, textAlign: 'center', margin: 10 }}>Our dedicated team is here to assist you with any question or issues related to our Coinpay mobile app</Text>
         </View>
-        <View style={{bottom:-80}}>
-            <ButtonsIcon nameIcon='comments' name='  Start Chat' fill={false} verify={false}/>
-            <ButtonsIcon nameIcon='circle-question' name='  View FAQ' fill={true} verify={false}/>
+        <View style={{bottom:-50}}>
+            <ButtonsIcon navigation={navigation} route='Message'nameIcon='comments' name='  Start Chat' fill={false} verify={false}/>
+            <ButtonsIcon navigation={navigation} route='Message' nameIcon='circle-question' name='  View FAQ' fill={true} verify={false}/>
         </View>
     </SafeAreaView>
   )

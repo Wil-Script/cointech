@@ -6,9 +6,16 @@ import colors from '../../constant/colors'
 import imagePath from '../../constant/imagePath'
 import { TitleStyles } from '../../styles/Title'
 import { NativeSyntheticEvent } from 'react-native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { RootStackPAramList } from '../../constant/Type'
+import { useNavigation } from '@react-navigation/native'
+import ButtonsWithIcon from '../../components/ButtonsWithIcon'
+
+type naviguationOnboardingScreen = NativeStackNavigationProp<RootStackPAramList,'OnboardingScreen'>
 const OnboardingScreen = () => {
     const [currentPage,setCurrentPage] = useState(0)
     const pagerViewRef = useRef<PagerView>(null)
+    const navigation = useNavigation<naviguationOnboardingScreen>()
     // gars ici c'est pour recuperer et mettre a jour le side sur lequels on se trouve
     const onPageSelected = (e:NativeSyntheticEvent<PagerViewOnPageSelectedEventData>)=>{
         setCurrentPage(e.nativeEvent.position)
@@ -48,7 +55,7 @@ const OnboardingScreen = () => {
                    <View style={{flexDirection:'row',marginTop:20,justifyContent:'center'}}>
                         {Tab.map((_,index)=>{
                             return(
-                                <TouchableOpacity key={index} style={{...styles.buttons,backgroundColor: currentPage==index?colors.blueColor:colors.griseButton,width:currentPage==index?15:35}}  onPress={()=>{
+                                <TouchableOpacity key={index} style={{...styles.buttons,backgroundColor: currentPage==index?colors.blueColor:colors.griseStatutBar,width:currentPage==index?15:35}}  onPress={()=>{
                                      goToPage(index)   
                                 }}></TouchableOpacity>
                             )
@@ -56,7 +63,8 @@ const OnboardingScreen = () => {
                     </View>
                     { <Text style={{ ...styles.Title, ...TitleStyles.TitlexlSemiBold }}>{Texte[currentPage].title}</Text>}
                   </View>  
-            <Buttons name='Next' fill={false} verify={false} />
+                  <></>
+                  <ButtonsWithIcon  navigation={navigation} nameIcon='' name=' Next' fill={false} verify={false} route='Connection' />
         </View>
     )
 }
@@ -79,7 +87,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     buttons:{
-        borderWidth:1,
+        borderWidth:0.3,
         borderColor:colors.black,
         borderRadius:8,
         // width:35,

@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Back from '../../components/Back'
 import ButtonsWithIcon from '../../components/ButtonsWithIcon'
@@ -40,7 +40,9 @@ const CardList = () => {
    };
     return (
         <View style={{flex:1}}>
-            <Back />
+            <TouchableOpacity onPress={()=>navigation.navigate('AddCard')}>
+                        <Back />
+                        </TouchableOpacity>
                     <Toast />
 
             <View style={{ marginHorizontal: 20, marginTop: 60, justifyContent:'space-between',flex:1}}>

@@ -12,10 +12,11 @@ import { TitleStyles } from '../../styles/Title'
 import imagePath from '../../constant/imagePath'
 
 const HomePage = () => {
+    
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: colors.gris, }}>
-            <ImageBackground source={imagePath.HomeBackground} style={styles.firstPart}>
-                {/* <View style={styles.firstPart}> */}
+        <SafeAreaView style={{ flex: 1, backgroundColor: colors.griseStatutBar, }}>
+            {/* <ImageBackground source={imagePath.HomeBackground} style={styles.firstPart}> */}
+                <View style={styles.firstPart}>
 
                 <View style={styles.SousSection1}  >
                     <Icon name='trophy' size={24} color={colors.white} />
@@ -67,8 +68,8 @@ const HomePage = () => {
                     </View>
                 </View>
 
-                {/* </View> */}
-            </ImageBackground>
+                </View>
+            {/* </ImageBackground> */}
 
             <View style={styles.secondPart}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 20 }}>
@@ -137,7 +138,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     firstPart: {
-        // backgroundColor: colors.blueColor,
+        backgroundColor: colors.blueColor,
         paddingHorizontal: 10,
         position: 'relative',
         height: 300,
